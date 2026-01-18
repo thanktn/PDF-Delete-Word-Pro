@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Remove Word Pro - Giải pháp bảo mật tài liệu tối ưu</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.5);
+            --secondary: #ec4899;
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --text-main: #f3f4f6;
+            --text-dim: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Background Background Animation */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 100px;
+            color: #818cf8;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* CTA Button */
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 48px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 80px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .feature-item {
+            padding: 40px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            text-align: left;
+            transition: border 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .feature-item p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 100px 0 50px 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <div class="container">
+        <nav>
+            <div class="logo">THANKTN PRO</div>
+            <div class="v">v1.2.0</div>
+        </nav>
+
+        <section class="hero">
+            <div class="badge">Sản phẩm tin cậy cho doanh nghiệp</div>
+            <h1>Xóa bỏ thông tin nhạy cảm <span>tự động.</span></h1>
+            <p>PDF Remove Word Pro giúp bạn làm sạch dữ liệu trong hàng trăm tệp PDF chỉ với một cú nhấp chuột. Nhanh hơn, an toàn hơn, chuyên nghiệp hơn.</p>
+            
+            <a href="PDFRemoveWordApp.exe" class="btn-main">
+                Tải xuống bản PRO (Windows)
+            </a>
+
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Hiệu năng vượt trội</h3>
+                    <p>Xử lý đa luồng (Multi-threading) giúp hoàn thành hàng trăm file chỉ trong vài giây.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Bảo mật Offline</h3>
+                    <p>Ứng dụng chạy trực tiếp trên máy của bạn, không gửi dữ liệu ra ngoài Internet.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Tùy biến tối đa</h3>
+                    <p>Linh hoạt chọn màu sắc che vùng (Redaction) và kích thước lề (Padding) theo ý muốn.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 PDF Remove Word Pro. Phát triển bởi Thanktn.
+        </footer>
+    </div>
+</body>
+</html>
